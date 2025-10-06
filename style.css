@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* --- Variable Definitions for Easy Color Changes --- */
+/* --- Variable Definitions for New Dreamy Ocean Color Scheme --- */
 :root {
-    --primary-color: #b74b4b; /* Red/Orange Accent */
-    --secondary-color: #343a40; /* Dark Gray (used for secondary items/lines) */
-    --text-color: #f8f9fa; /* Light Text */
-    --background-color: #000000; /* PURE BLACK */
-    --card-background: #0d0d0d; /* Very subtle dark gray for cards to stand out slightly from pure black */
-    --border-radius: 0.5rem;
+    --primary-color: #006989; /* Deep Ocean Blue Accent */
+    --secondary-color: #3b3c3e; /* Dark Gray for secondary text/lines */
+    --text-color: #3b3c3e; /* Dark Text for readability on light background */
+    --light-text-color: #f8f9fa; /* Light Text (used for contrast) */
+    --background-color: #eaebed; /* Dreamy Light Background */
+    --card-background: #ffffff; /* Pure White for Cards/Containers */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Subtle Shadow */
+    --border-radius: 0.75rem; /* Slightly larger radius for a softer look */
 }
 
 * {
@@ -39,8 +41,8 @@ header {
     left: 0;
     width: 100%;
     padding: 2rem 9%;
-    background-color: var(--background-color);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); /* Increased shadow opacity for visibility on black */
+    background-color: var(--card-background); /* White header for professionalism */
+    box-shadow: 0 4px 12px var(--shadow-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,11 +54,12 @@ header {
     color: var(--primary-color);
     font-weight: 700;
     cursor: pointer;
-    transition: 0.5s ease;
+    transition: 0.3s ease;
+    /* Added "Sai.K" in HTML */
 }
 
 .logo:hover {
-    transform: scale(1.05);
+    color: var(--secondary-color);
 }
 
 nav a {
@@ -64,7 +67,8 @@ nav a {
     color: var(--text-color);
     margin-left: 4rem;
     font-weight: 500;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
+    transition: color 0.3s ease;
+    padding-bottom: 0.5rem;
     border-bottom: 3px solid transparent;
 }
 
@@ -81,24 +85,31 @@ nav a.active {
         display: none;
         top: 100%;
         right: 0;
-        width: 40%;
-        min-width: 200px;
-        border-left: 3px solid var(--primary-color);
-        border-bottom-left-radius: var(--border-radius);
-        padding: 1rem;
+        width: 100%;
+        border-top: 1px solid var(--shadow-color);
+        padding: 1rem 9%;
         background-color: var(--card-background);
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 10px 10px var(--shadow-color);
+        flex-direction: column;
+        text-align: center;
+        border-radius: 0;
+    }
+
+    nav a {
+        display: block;
+        margin: 1rem 0;
+        padding: 1rem;
+        border-radius: 0.5rem;
     }
 
     nav.active{
-        display: block;
+        display: flex;
     }
 
     nav a:hover,
     nav a.active{
-        color: var(--primary-color);
-        background-color: rgba(183, 75, 75, 0.1); 
-        border-radius: var(--border-radius);
+        color: var(--light-text-color);
+        background-color: var(--primary-color); 
         border-bottom: none;
     }
 }
@@ -107,7 +118,6 @@ nav a.active {
 section {
     min-height: 100vh;
     padding: 10rem 9% 2rem;
-    /* Ensure all sections use the background color variable */
     background-color: var(--background-color); 
 }
 
@@ -117,6 +127,7 @@ h2 {
     text-align: center;
     color: var(--primary-color);
     position: relative;
+    font-weight: 700;
 }
 
 h2::after {
@@ -152,18 +163,20 @@ span {
 
 .home-content h3 {
     font-size: 3.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-weight: 600;
+    color: var(--secondary-color);
 }
 
 .home-content p {
-    font-size: 1.6rem;
-    line-height: 1.6;
+    font-size: 1.7rem;
+    line-height: 1.7;
     max-width: 500px;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    color: var(--secondary-color);
 }
 
-/* Image Styling: Size 32vw, No colored border */
+/* Image Styling: Added a subtle border for a professional look */
 .home-img img {
     position: relative;
     width: 32vw;
@@ -172,22 +185,25 @@ span {
     min-height: 280px;
     border-radius: 50%; 
     object-fit: cover;
+    border: 5px solid var(--primary-color); /* Ocean Blue border */
+    box-shadow: 0 0 25px rgba(0, 105, 137, 0.4); /* Soft blue glow */
     transition: all 0.5s ease;
 }
 
 .home-img img:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(0, 105, 137, 0.6);
 }
 
 .social-icons a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 4.5rem;
-    height: 4.5rem;
-    background-color: transparent;
+    width: 4.8rem;
+    height: 4.8rem;
+    background-color: var(--card-background);
     border: 2px solid var(--primary-color);
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     border-radius: 50%;
     margin: 3rem 1.5rem 3rem 0;
     transition: 0.3s ease;
@@ -195,8 +211,8 @@ span {
 }
 
 .social-icons a:hover {
-    color: var(--background-color);
-    transform: translateY(-5px);
+    color: var(--light-text-color);
+    transform: translateY(-8px) scale(1.1); /* More noticeable lift */
     background-color: var(--primary-color);
     box-shadow: 0 0 25px var(--primary-color);
 }
@@ -204,30 +220,31 @@ span {
 .btn {
     display: inline-block;
     padding: 1.2rem 3rem;
-    background-color: transparent;
+    background-color: var(--primary-color);
     border-radius: 4rem;
     font-size: 1.8rem;
-    color: var(--primary-color);
+    color: var(--light-text-color);
     letter-spacing: 0.1rem;
     font-weight: 600;
     border: 2px solid var(--primary-color);
     transition: 0.3s ease;
     cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 105, 137, 0.3);
 }
 
 .btn:hover {
     transform: scale(1.05);
-    background-color: var(--primary-color);
-    color: var(--background-color);
+    background-color: transparent;
+    color: var(--primary-color);
     box-shadow: 0 0 25px var(--primary-color);
 }
 
 /* Typing Text Animation */
 .typing-text {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 600;
     min-width: 280px;
-    height: 3rem;
+    height: 3.5rem;
     position: relative;
     display: inline-block;
 }
@@ -240,12 +257,10 @@ span {
 /* Typing Cursor Position Fix */
 .typing-text span::after {
     content: "";
-    /* Uses card background color to hide the text */
-    background-color: var(--card-background); 
+    background-color: var(--background-color); 
     position: absolute;
     height: 100%;
-    /* The border itself acts as the cursor */
-    border-left: 3px solid var(--background-color);
+    border-left: 3px solid var(--text-color);
     right: -3px; 
     top: 0;
     bottom: 0;
@@ -291,6 +306,7 @@ span {
         min-width: 250px;
         min-height: 250px;
         margin-top: 2rem;
+        box-shadow: 0 0 15px rgba(0, 105, 137, 0.4);
     }
 }
 
@@ -301,7 +317,7 @@ span {
 
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 3rem;
     max-width: 1200px;
     margin: auto;
@@ -309,22 +325,22 @@ span {
 
 .skill-card {
     background: var(--card-background);
-    padding: 3rem 2rem;
+    padding: 3.5rem 2.5rem;
     border-radius: var(--border-radius);
-    border: 1px solid var(--secondary-color);
+    border: 1px solid rgba(0, 105, 137, 0.1);
     text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    transition: transform 0.4s ease, border-color 0.4s ease;
+    box-shadow: 0 8px 25px var(--shadow-color);
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .skill-card:hover {
-    transform: translateY(-15px);
+    transform: translateY(-10px);
     border-color: var(--primary-color);
-    box-shadow: 0 15px 30px rgba(183, 75, 75, 0.5); 
+    box-shadow: 0 15px 30px rgba(0, 105, 137, 0.2); 
 }
 
 .skill-card i {
-    font-size: 4.5rem;
+    font-size: 5rem;
     margin-bottom: 1.5rem;
     color: var(--primary-color);
 }
@@ -332,12 +348,13 @@ span {
 .skill-card h3 {
     font-size: 2.2rem;
     margin: 0;
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--text-color);
 }
 
 /* --- Education & Experience Sections (Timeline Styling) --- */
 #education, #experience {
-    background: var(--card-background);
+    background: var(--card-background); /* White background for contrast against body */
 }
 
 .timeline {
@@ -353,68 +370,72 @@ span {
     position: absolute;
     top: 0;
     left: 50%;
-    width: 2px;
+    width: 3px;
     height: 100%;
-    background: var(--secondary-color);
+    background: var(--background-color);
     transform: translateX(-50%);
 }
 
 .timeline-item {
     position: relative;
-    background: var(--background-color); /* Set timeline item background to pure black */
+    background: var(--background-color); 
     padding: 2.5rem;
-    margin: 3rem 0;
+    margin: 3.5rem 0;
     border-radius: var(--border-radius);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 5px 15px var(--shadow-color);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-left: 4px solid var(--primary-color); /* Added a clean side border */
 }
 
 .timeline-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 10px 20px rgba(183, 75, 75, 0.2); 
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 105, 137, 0.2); 
 }
 
 .timeline-item h3 {
     font-size: 2.4rem;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
 .timeline-item span {
-    font-size: 1.4rem;
-    color: #999;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
     display: block;
     margin-bottom: 1rem;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .timeline-item p {
     font-size: 1.6rem;
     line-height: 1.6;
+    color: var(--text-color);
 }
 
-/* Timeline Dot */
+/* Timeline Dot - Adjusted size and color for the new theme */
 .timeline-item::after {
     content: '';
     position: absolute;
-    top: 3.5rem;
-    width: 15px;
-    height: 15px;
+    top: 3rem;
+    width: 18px;
+    height: 18px;
     background-color: var(--primary-color);
-    border: 3px solid var(--background-color);
+    border: 4px solid var(--background-color);
     border-radius: 50%;
     z-index: 10;
 }
 
 /* Positioning timeline items (left/right of the center line) */
+/* Resetting the transforms to keep the center line styling but simplify layout */
 .timeline-item:nth-child(odd) {
-    transform: translateX(-5%);
+    transform: translateX(-2.5%); /* Subtle shift */
     margin-right: 50%;
     text-align: right;
 }
 
 .timeline-item:nth-child(even) {
-    transform: translateX(5%);
+    transform: translateX(2.5%); /* Subtle shift */
     margin-left: 50%;
 }
 
@@ -426,6 +447,7 @@ span {
     left: -36px;
 }
 
+/* Mobile Timeline: Align everything to the left */
 @media (max-width: 768px) {
     .timeline::before {
         left: 20px;
@@ -436,7 +458,8 @@ span {
         margin-left: 0;
         margin-right: 0;
         transform: none;
-        padding: 2rem 2rem 2rem 4rem;
+        padding: 2.5rem;
+        padding-left: 5rem; /* Space for the dot */
         border-left: 4px solid var(--primary-color);
     }
     
@@ -467,22 +490,24 @@ span {
 
 .contact-item {
     background: var(--card-background);
-    padding: 3rem;
+    padding: 3.5rem 3rem;
     flex: 1 1 280px;
     text-align: center;
     border-radius: var(--border-radius);
-    border-bottom: 4px solid var(--primary-color);
-    transition: transform 0.4s ease, background-color 0.4s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--shadow-color);
+    border-bottom: 5px solid var(--primary-color); /* Stronger accent line */
+    transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 5px 15px var(--shadow-color);
 }
 
 .contact-item:hover {
-    transform: translateY(-10px);
-    background-color: #161616; /* Slightly darker than card background on hover */
+    transform: translateY(-8px);
+    background-color: #f7f7f7; /* Subtle background change on hover */
+    box-shadow: 0 10px 25px rgba(0, 105, 137, 0.2); 
 }
 
 .contact-item i {
-    font-size: 3.5rem;
+    font-size: 4rem;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
 }
@@ -491,11 +516,12 @@ span {
     font-size: 2.2rem;
     margin-bottom: 1rem;
     color: var(--text-color);
+    font-weight: 600;
 }
 
 .contact-item p {
-    font-size: 1.6rem;
-    color: #ccc;
+    font-size: 1.7rem;
+    color: var(--secondary-color);
 }
 
 .contact-item a {
@@ -505,6 +531,6 @@ span {
 }
 
 .contact-item a:hover {
-    color: var(--text-color);
+    color: var(--secondary-color);
     text-decoration: underline;
 }
